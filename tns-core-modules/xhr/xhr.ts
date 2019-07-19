@@ -107,7 +107,7 @@ export class XMLHttpRequest {
         this._addToStringOnResponse();
 
         if (this.responseType === XMLHttpRequestResponseType.json) {
-            this._response = JSON.parse(this.responseText);
+            this._response = this.responseText.length ? JSON.parse(this.responseText) : this.responseText;
         } else if (this.responseType === XMLHttpRequestResponseType.text) {
             this._response = this.responseText;
         }
